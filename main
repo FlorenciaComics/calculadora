@@ -1,0 +1,63 @@
+def suma(a, b):
+    return a + b
+
+def resta(a, b):
+    return a - b
+
+def multiplicacion(a, b):
+    return a * b
+
+def division(a, b):
+    try:
+        return a / b
+    except ZeroDivisionError:
+        print("ERROR: division por cero")
+        return None
+
+def potencia(a, b):
+    return a ** b
+
+def raiz(a):
+    return a ** 0.5
+
+def menucalc():
+    while True:
+        print("Bienvenido a mi calculadora.....")
+        while True:
+            try:
+                numerouno = float(input("Ingrese el primer numero: "))
+                break
+            except ValueError:
+                print("Usted ingreso un valor no valido")
+        
+        operador = input("Ingrese el operador (opciones: +,-,*,/,^,raiz): ")
+
+        while operador != "raiz":
+            try:
+                numerodos = float(input("Ingrese el segundo numero: "))
+            except ValueError:
+                print("Usted ingreso un valor no valido")
+
+        if operador == "+":
+            resultado = suma(numerouno, numerodos)
+            print(numerouno, operador, numerodos, "=", resultado)
+        elif operador == "-":
+            resultado = resta(numerouno, numerodos)
+            print(numerouno, operador, numerodos, "=", resultado)
+        elif operador == "*":
+            resultado = multiplicacion(numerouno, numerodos)
+            print(numerouno, operador, numerodos, "=", resultado)
+        elif operador == "/":
+            resultado = division(numerouno, numerodos)
+            print(numerouno, operador, numerodos, "=", resultado)
+        elif operador == "^":
+            resultado = potencia(numerouno, numerodos)
+            print(numerouno, operador, numerodos, "=", resultado)
+        elif operador == "raiz":
+            resultado = raiz(numerouno)
+            print("La raiz de", numerouno, "es", resultado)
+        else:
+            print("Usted ingreso un operador no valido, intente denuevo")
+
+if __name__ == "__main__":
+    menucalc()
